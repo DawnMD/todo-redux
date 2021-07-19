@@ -12,9 +12,6 @@
 
 Practice application for understanding the use of _**Redux**_ in a complex webapp.
 
-## Flow
-
-User can add multiple TODO card. In each Todo card they can add multiple items.
 
 ## For running the project
 
@@ -30,6 +27,7 @@ User can add multiple TODO card. In each Todo card they can add multiple items.
 - [ ] Use `localStorage` for persistance of data
 - [ ] OPTIONAL - Add authentication so that it can use by different user
 - [ ] OPTIONAL - Add _**MongoDB**_ in place of `localStorage`
+- [ ] Add function to add multiple TODO cards
 - [ ] ...something will be added in future revisions
 
 > Feel free to open a issue or PR
