@@ -25,7 +25,7 @@ User can add multiple TODO card. In each Todo card they can add multiple items.
 
 ## Functionality to implement
 
-- [ ] Build separated components for all the blocks in the project
+- [x] Build separated components for all the blocks in the project
 - [ ] Style the project for a more visual appeal
 - [ ] Use `localStorage` for persistance of data
 - [ ] OPTIONAL - Add authentication so that it can use by different user
