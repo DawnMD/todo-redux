@@ -1,49 +1,53 @@
 import React, { Component } from 'react';
-import { addCard, removeCard } from './actions';
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
 import { compose } from 'redux';
-import Button from './components/Shared/UI/Button';
-import Input from './components/Shared/UI/Input';
+import { addTodo, removeTodo } from './actions';
 import Label from './components/Shared/UI/Label';
-import Card from './components/Card';
+import Input from './components/Shared/UI/Input';
+import DeleteIcon from './components/Shared/UI/DeleteIcon';
 
 class App extends Component {
-	addCardHandler = (formProps) => {
+	submitHandle = (formProps) => {
 		this.props.reset();
-		this.props.addCard(formProps.card);
+		this.props.addTodo(formProps.todo);
 	};
 	render() {
 		return (
-			<div className='flex flex-col gap-6'>
+			<div className='flex flex-col items-center w-full gap-2'>
 				<form
-					onSubmit={this.props.handleSubmit(this.addCardHandler)}
-					className='flex items-center justify-center gap-3'>
-					<Label htmlFor='card'>Enter card name</Label>
-					<Input name='card' placeholder='Card Name' />
-					<Button>Add Card</Button>
+					className='flex flex-col items-center gap-2'
+					onSubmit={this.props.handleSubmit(this.submitHandle)}>
+					<Label htmlFor='todo'>Enter Todo</Label>
+					<Input name='todo' placeholder='Enter todo' />
+					<button
+						type='submit'
+						className='px-3 py-2 font-medium rounded-md shadow bg-emerald-500 hover:bg-emerald-400 focus:outline-none focus:ring focus:ring-offset-1 focus:ring-emerald-600'>
+						Add todo to list
+					</button>
 				</form>
-				<div className='flex flex-col items-center gap-6'>
-					<h2 className='text-2xl font-semibold text-center'>TODO Cards</h2>
-					<div className='flex flex-col gap-4'>
-						{this.props.cards &&
-							this.props.cards.map((card) => (
-								<Card cardName={card} key={card} />
-							))}
-					</div>
+				<div className='flex flex-col gap-2 w-72'>
+					{this.props.todos.map((todo) => (
+						<div
+							className='flex justify-between w-full p-3 border rounded shadow'
+							key={todo}>
+							<p>{todo}</p>
+							<button onClick={() => this.props.removeTodo(todo)}>
+								<DeleteIcon />
+							</button>
+						</div>
+					))}
 				</div>
 			</div>
 		);
 	}
 }
-
-const mapStateToProps = (state) => {
-	return { cards: state.card, state };
+const mapStateToProps = (state, ownProps) => {
+	return { todos: state.todos };
 };
-
 export default compose(
-	connect(mapStateToProps, { addCard, removeCard }),
+	connect(mapStateToProps, { addTodo, removeTodo }),
 	reduxForm({
-		form: 'addCard',
+		form: 'todoForm',
 	})
 )(App);
