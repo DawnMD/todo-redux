@@ -1,36 +1,14 @@
-import {
-	ADD_CARD,
-	ADD_ITEM_TO_CARD,
-	REMOVE_CARD,
-	REMOVE_ITEM_FROM_CARD,
-} from './constants';
-export const addItemToCard = (todo) => {
+import { ADD_TODO, REMOVE_TODO } from './constants';
+export const addTodo = (todoItem) => {
 	return {
-		type: ADD_ITEM_TO_CARD,
-		payload: {
-			timestamp: new Date(),
-			todo,
-		},
+		type: ADD_TODO,
+		payload: todoItem,
 	};
 };
 
-export const addCard = (title) => {
+export const removeTodo = (todoItem) => {
 	return {
-		type: ADD_CARD,
-		payload: title,
-	};
-};
-
-export const removeItemFromCard = (todo) => {
-	return {
-		type: REMOVE_ITEM_FROM_CARD,
-		payload: todo,
-	};
-};
-
-export const removeCard = (title) => {
-	return {
-		type: REMOVE_CARD,
-		payload: title,
+		type: REMOVE_TODO,
+		payload: todoItem,
 	};
 };
