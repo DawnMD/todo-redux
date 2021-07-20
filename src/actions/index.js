@@ -1,8 +1,12 @@
 import { ADD_TODO, REMOVE_TODO } from './constants';
+import uuid from 'uuid-random';
 export const addTodo = (todoItem) => {
 	return {
 		type: ADD_TODO,
-		payload: todoItem,
+		payload: {
+			id: uuid(),
+			todoItem,
+		},
 	};
 };
 
