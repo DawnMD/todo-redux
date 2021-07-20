@@ -23,8 +23,7 @@ Practice application for understanding the use of _**Redux**_ in a complex webap
 ## Functionality to implement
 
 - [x] Build separated components for all the blocks in the project
-- [ ] Style the project for a more visual appeal
+- [x] Style the project for a more visual appeal
 - [ ] Use `localStorage` for persistance of data
-- [ ] OPTIONAL - Add authentication so that it can use by different user
-- [ ] OPTIONAL - Add _**MongoDB**_ in place of `localStorage`
+
 - [ ] OPTIONAL - Add function to add multiple TODO cards
