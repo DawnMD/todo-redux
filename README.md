@@ -2,16 +2,14 @@
 
 ## Packages used:
 
-* React class components
-* Redux
-* Redux form
-* TailwindCSS
-
+- React class components
+- ~~Redux~~ **Reduxjs/Toolkit**
+- Redux form
+- TailwindCSS
 
 ## Purpose
 
 Practice application for understanding the use of _**Redux**_ in a complex webapp.
-
 
 ## For running the project
 
