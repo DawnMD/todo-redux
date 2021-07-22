@@ -1,32 +1,30 @@
-import { Component } from 'react';
-import Input from './Shared/UI/Input';
-import Label from './Shared/UI/Label';
-import { reduxForm } from 'redux-form';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
-import { addTodo } from '../actions';
+import { useRef } from 'react';
+import { useDispatch } from 'react-redux';
 import Button from './Shared/UI/Button';
-class TodoForm extends Component {
-	submitHandle = (formProps) => {
-		this.props.reset();
-		this.props.addTodo(formProps.todo);
-	};
-	render() {
-		return (
-			<form
-				className='flex flex-col items-center gap-2 md:flex-row'
-				onSubmit={this.props.handleSubmit(this.submitHandle)}>
-				<Label htmlFor='todo'>Enter Todo</Label>
-				<Input name='todo' placeholder='Enter todo' />
-				<Button>Add todo</Button>
-			</form>
-		);
-	}
-}
+import { todoActions } from '../redux/slice/todoSlice';
+const TodoForm = () => {
+	const todoCardRef = useRef();
+	const dispatch = useDispatch();
+	return (
+		<form className='flex flex-col items-center gap-2 md:flex-row'>
+			<label htmlFor='todoCard' className='text-xl font-semibold text-gray-800'>
+				Enter todo card
+			</label>
+			<input
+				if='todoCard'
+				placeholder='Grocery'
+				type='text'
+				className='rounded-md shadow'
+				ref={todoCardRef}
+			/>
+			<Button
+				onClick={() =>
+					dispatch(todoActions.addTodoCard(todoCardRef.current.value))
+				}>
+				Add todo
+			</Button>
+		</form>
+	);
+};
 
-export default compose(
-	connect(null, { addTodo }),
-	reduxForm({
-		form: 'todoForm',
-	})
-)(TodoForm);
+export default TodoForm;
