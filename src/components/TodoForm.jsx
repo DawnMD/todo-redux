@@ -11,7 +11,8 @@ const TodoForm = () => {
 				Enter todo card
 			</label>
 			<input
-				if='todoCard'
+				id='todoCard'
+				name='todoCard'
 				placeholder='Grocery'
 				type='text'
 				className='rounded-md shadow'
@@ -21,7 +22,7 @@ const TodoForm = () => {
 				onClick={() =>
 					dispatch(todoActions.addTodoCard(todoCardRef.current.value))
 				}>
-				Add todo
+				Add card
 			</Button>
 		</form>
 	);

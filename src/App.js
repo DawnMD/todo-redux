@@ -8,7 +8,7 @@ const App = () => {
 				TODO list using Redux
 			</h1>
 			<TodoForm />
-			{/* <TodoList /> */}
+			<TodoList />
 		</div>
 	);
 };
