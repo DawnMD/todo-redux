@@ -9,7 +9,7 @@
 
 ## Purpose
 
-Practice application for understanding the use of _**Redux**_ in a complex webapp.
+Practice application for understanding the use of ~~_**Redux**_~~ _**Reduxjs/Toolkit**_ in a complex webapp.
 
 ## For running the project
 
@@ -22,6 +22,7 @@ Practice application for understanding the use of _**Redux**_ in a complex webap
 
 - [x] Build separated components for all the blocks in the project
 - [x] Style the project for a more visual appeal
-- [ ] Use `localStorage` for persistance of data
-
-- [ ] OPTIONAL - Add function to add multiple TODO cards
+- [ ] Style with responsiveness
+- ~~[ ] Use `localStorage` for persistance of data~~
+- [ ] Will add firebase realtime database
+- [x] OPTIONAL - Add function to add multiple TODO cards
