@@ -24,5 +24,5 @@ Practice application for understanding the use of ~~_**Redux**_~~ _**Reduxjs/Too
 - [x] Style the project for a more visual appeal
 - [x] Style with responsiveness
 - ~~[ ] Use `localStorage` for persistance of data~~
-- [ ] Will add firebase realtime database
+- ~~[ ] Will add firebase realtime database~~
 - [x] OPTIONAL - Add function to add multiple TODO cards
