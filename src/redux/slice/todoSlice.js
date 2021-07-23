@@ -31,17 +31,34 @@ const todoSlice = createSlice({
 			const item = action.payload.todoItem;
 			const todoObj = state.todos.find((todo) => todo.id === id);
 			if (todoObj) {
-				todoObj.todoItems.unshift(item);
+				todoObj.todoItems.unshift({
+					id: nanoid(2),
+					item,
+					isCompleted: false,
+				});
 			} else {
 				return;
 			}
 		},
 		removeTodoItem: (state, action) => {
 			const id = action.payload.id;
-			const item = action.payload.todoItem;
-			const Todo = state.todos.find((todo) => todo.id === id);
-			if (Todo) {
-				Todo.todoItems = Todo.todoItems.filter((todo) => todo !== item);
+			const todoId = action.payload.todoId;
+			const todoObj = state.todos.find((todo) => todo.id === id);
+			if (todoObj) {
+				todoObj.todoItems = todoObj.todoItems.filter(
+					(todo) => todo.id !== todoId
+				);
+			} else {
+				return;
+			}
+		},
+		completeTodoItem: (state, action) => {
+			const id = action.payload.id;
+			const todoId = action.payload.todoId;
+			const todoObj = state.todos.find((todo) => todo.id === id);
+			if (todoObj) {
+				const todoItems = todoObj.todoItems.find((todo) => todo.id === todoId);
+				todoItems.isCompleted = true;
 			} else {
 				return;
 			}
